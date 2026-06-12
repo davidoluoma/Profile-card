@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>David Oluomachukwu Favour</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1A1A1A;
+    --paper: #F7F5F0;
+    --signal: #FF5A1F;
+    --muted: #8A8580;
+    --line: #E6E2D8;
+    --card: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    padding: 24px 0 48px;
+  }
+
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .hero {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 32px;
+    display: flex;
+    gap: 28px;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  .hero-text { flex: 1; min-width: 0; }
+
+  .greeting {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+
+  .name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  .role {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--signal);
+    margin-top: 6px;
+  }
+
+  .tagline {
+    font-size: 14.5px;
+    color: #4A4641;
+    margin-top: 12px;
+    max-width: 420px;
+  }
+
+  .photo {
+    flex-shrink: 0;
+    width: 140px;
+    height: 170px;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #EFEBE2;
+  }
+
+  .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .terminal {
+    background: var(--card);
+    color: var(--ink);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--signal);
+    border-radius: 14px;
+    padding: 18px 22px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12.5px;
+    line-height: 1.8;
+    margin-bottom: 16px;
+  }
+
+  .terminal .prompt { color: var(--signal); font-weight: 500; }
+  .terminal .dim { color: #6B665F; }
+
+  .cursor {
+    display: inline-block;
+    width: 7px;
+    height: 13px;
+    background: var(--signal);
+    margin-left: 2px;
+    animation: blink 1s step-end infinite;
+    vertical-align: middle;
+  }
+
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    50.01%, 100% { opacity: 0; }
+  }
+
+  .contact-row {
+    margin-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    font-size: 12.5px;
+    color: var(--muted);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .contact-row a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+    transition: border-color 0.15s ease, color 0.15s ease;
+  }
+
+  .contact-row a:hover, .contact-row a:focus-visible {
+    color: var(--signal);
+    border-color: var(--signal);
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 28px 32px;
+    margin-bottom: 16px;
+  }
+
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+
+  .summary {
+    font-size: 15.5px;
+    color: #3A3835;
+    max-width: 600px;
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    color: var(--ink);
+  }
+
+  .stat-label {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+
+  .tracks {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .track {
+    display: block;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 18px 20px;
+    text-decoration: none;
+    color: var(--ink);
+    transition: border-color 0.15s ease, transform 0.1s ease;
+  }
+
+  .track:hover, .track:focus-visible {
+    border-color: var(--signal);
+    transform: translateX(2px);
+  }
+
+  .track-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+  }
+
+  .track-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--signal);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .track-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 17px;
+    margin-top: 4px;
+  }
+
+  .track-desc {
+    font-size: 13.5px;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+
+  .track-arrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 18px;
+    color: var(--muted);
+    transition: color 0.15s ease, transform 0.15s ease;
+  }
+
+  .track:hover .track-arrow, .track:focus-visible .track-arrow {
+    color: var(--signal);
+    transform: translateX(3px);
+  }
+
+  .cv-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .cv-link {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 12px 14px;
+    text-decoration: none;
+    color: var(--ink);
+    background: var(--paper);
+    transition: border-color 0.15s ease;
+    font-size: 13px;
+  }
+
+  .cv-link:hover, .cv-link:focus-visible {
+    border-color: var(--signal);
+  }
+
+  .cv-link .cv-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  .cv-link .cv-sub {
+    color: var(--muted);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+  }
+
+  footer {
+    padding: 16px 4px 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  footer a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--line); }
+  footer a:hover, footer a:focus-visible { color: var(--signal); border-color: var(--signal); }
+
+  @media (max-width: 560px) {
+    .hero { flex-direction: column-reverse; text-align: center; padding: 28px 24px; }
+    .hero-text { text-align: center; }
+    .tagline { max-width: none; margin-left: auto; margin-right: auto; }
+    .photo { width: 120px; height: 150px; }
+    .name { font-size: 28px; }
+    .stats { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .cv-grid { grid-template-columns: 1fr; }
+    .card { padding: 24px 20px; }
+    .contact-row { justify-content: center; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cursor { animation: none; }
+    .track, .track-arrow, .contact-row a, .cv-link { transition: none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="hero-text">
+      <div class="greeting">Hi, I'm</div>
+      <div class="name">David Oluoma</div>
+      <div class="role">Data Analyst &amp; Operations Coordinator</div>
+      <div class="tagline">
+        I turn messy data and chaotic workflows into systems that work, drawing on a
+        Computer Science background and Google Data Analytics certification.
+      </div>
+    </div>
+    <div class="photo">
+      <img src="assets/profile.jpeg" alt="David Oluomachukwu Favour">
+    </div>
+  </div>
+
+  <div class="terminal">
+    <div><span class="prompt">$</span> whoami</div>
+    <div class="dim">→ data analyst · operations coordinator · graduate trainee</div>
+    <div style="margin-top:8px;"><span class="prompt">$</span> status</div>
+    <div class="dim">→ open to roles · fast learner · ships on time<span class="cursor"></span></div>
+
+    <div class="contact-row">
+      <a href="mailto:david.oluoma.favour@gmail.com">david.oluoma.favour@gmail.com</a>
+      <a href="tel:+2349036482785">+234 903 648 2785</a>
+      <span>Port Harcourt, Nigeria</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="eyebrow">Summary</div>
+    <p class="summary">
+      Computer Science graduate (BSc, Second Class Upper) and NYSC-certified, with a track record
+      of building tracking systems that improved reporting efficiency by 30%, training a machine
+      learning model to 82% accuracy, and maintaining 100% SLA compliance across 300+ daily
+      tickets. Google Data Analytics certified and always looking for the next problem worth solving.
+    </p>
+  </div>
+
+  <div class="card">
+    <div class="eyebrow">At a Glance</div>
+    <div class="stats">
+      <div>
+        <div class="stat-num">30%</div>
+        <div class="stat-label">Faster reporting systems built from scratch</div>
+      </div>
+      <div>
+        <div class="stat-num">82%</div>
+        <div class="stat-label">Accuracy on an independent ML model</div>
+      </div>
+      <div>
+        <div class="stat-num">100%</div>
+        <div class="stat-label">SLA compliance across 300+ daily tickets</div>
+      </div>
+      <div>
+        <div class="stat-num">12+</div>
+        <div class="stat-label">Nationwide programmes coordinated</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="eyebrow">Pick a track</div>
+    <div class="tracks">
+
+      <a class="track" href="https://davidoluoma.github.io/data.html">
+        <div class="track-top">
+          <div>
+            <div class="track-tag">Data &amp; AI</div>
+            <div class="track-title">Data Analyst Portfolio</div>
+          </div>
+          <div class="track-arrow">→</div>
+        </div>
+        <div class="track-desc">ML models, KPI dashboards, NLP projects, and data storytelling.</div>
+      </a>
+
+      <a class="track" href="https://davidoluoma.github.io/ops.html">
+        <div class="track-top">
+          <div>
+            <div class="track-tag">Operations</div>
+            <div class="track-title">Operations &amp; Partnerships Portfolio</div>
+          </div>
+          <div class="track-arrow">→</div>
+        </div>
+        <div class="track-desc">Programme coordination, workflow systems, and stakeholder reporting.</div>
+      </a>
+
+      <a class="track" href="https://davidoluoma.github.io/">
+        <div class="track-top">
+          <div>
+            <div class="track-tag">Remote Support</div>
+            <div class="track-title">Virtual Assistant Portfolio</div>
+          </div>
+          <div class="track-arrow">→</div>
+        </div>
+        <div class="track-desc">Executive support, async coordination, and client operations.</div>
+      </a>
+
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="eyebrow">Download a CV</div>
+    <div class="cv-grid">
+      <a class="cv-link" href="cv/CV4_Energy_Sector_Harvard.pdf">
+        <span class="cv-name">Energy Sector</span>
+        <span class="cv-sub">IT &amp; Data · Graduate Trainee</span>
+      </a>
+      <a class="cv-link" href="cv/CV5_Operations_Technical_Harvard.pdf">
+        <span class="cv-name">Operations &amp; Technical</span>
+        <span class="cv-sub">Process &amp; Data Analysis</span>
+      </a>
+      <a class="cv-link" href="cv/CV2_AI_Trainer_Harvard.pdf">
+        <span class="cv-name">AI Trainer</span>
+        <span class="cv-sub">Data Annotation · NLP</span>
+      </a>
+      <a class="cv-link" href="cv/CV1_VA_Remote_Harvard.pdf">
+        <span class="cv-name">Virtual Assistant</span>
+        <span class="cv-sub">Remote Executive Support</span>
+      </a>
+      <a class="cv-link" href="cv/CV3_Banking_Finance_Harvard.pdf">
+        <span class="cv-name">Banking &amp; Finance</span>
+        <span class="cv-sub">Investment &amp; Financial Services</span>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <span>Last updated June 2026</span>
+    <a href="mailto:david.oluoma.favour@gmail.com">Get in touch →</a>
+  </footer>
+
+</div>
+</body>
+</html>
